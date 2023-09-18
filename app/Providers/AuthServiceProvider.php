@@ -2,8 +2,8 @@
 
 namespace App\Providers;
 
-// use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Gate;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -21,6 +21,25 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        $this->mapPolicies();
+    }
+
+    public function mapPolicies()
+    {
+
+        foreach (glob(__DIR__ . '/../Policies/*.php') as $file) {
+
+            $policy = 'App\Policies\\' . substr(basename($file), 0, -4);
+
+            $model = 'App\Models\\' . str_replace('Policy', '', $policy);
+
+            if (class_exists($model) && class_exists($policy)) {
+
+                Gate::policy($model, $policy);
+
+            }
+
+        }
+
     }
 }
