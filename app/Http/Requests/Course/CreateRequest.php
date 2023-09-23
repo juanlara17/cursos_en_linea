@@ -18,7 +18,7 @@ class CreateRequest extends FormRequest
 
     public function authorize()
     {
-
+        return true;
         return $this->user()->can('create', Course::class);
 
     }
@@ -26,7 +26,7 @@ class CreateRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required|string|max:255'
         ];
     }
 
@@ -61,5 +61,5 @@ class CreateRequest extends FormRequest
         return $response;
 
     }
-    
+
 }

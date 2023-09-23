@@ -15,6 +15,13 @@ return new class extends Migration
     {
         Schema::create('questions', function (Blueprint $table) {
             $table->id();
+
+            $table->string('version');
+            $table->string('type');
+            $table->unsignedTinyInteger('order');
+            $table->longText('payload')->nullable();
+            $table->foreignId('quiz_id');
+
             $table->timestamps();
             $table->softDeletes();
         });

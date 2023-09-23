@@ -15,6 +15,11 @@ return new class extends Migration
     {
         Schema::create('sections', function (Blueprint $table) {
             $table->id();
+
+            $table->string('name');
+            $table->unsignedTinyInteger('order')->default(0);
+            $table->foreignId('course_id');
+
             $table->timestamps();
             $table->softDeletes();
         });

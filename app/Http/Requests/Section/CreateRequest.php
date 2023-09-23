@@ -18,7 +18,7 @@ class CreateRequest extends FormRequest
 
     public function authorize()
     {
-
+        return $this;
         return $this->user()->can('create', Section::class);
 
     }
@@ -26,21 +26,31 @@ class CreateRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required|string|max:255',
+            'order' => 'nullable|numeric',
+            'course_id' => 'required|numeric|exists:courses,id'
         ];
     }
 
     public function messages()
     {
         return [
-            //
+            'name.required' => 'El campo nombre es obligatorio.',
+            'name.string' => 'El campo nombre debe ser una cadena de texto.',
+            'name.max' => 'El campo nombre no debe exceder los 255 caracteres.',
+            'order.numeric' => 'El campo orden debe ser un valor numérico.',
+            'course_id.required' => 'El campo ID del curso es obligatorio.',
+            'course_id.numeric' => 'El campo ID del curso debe ser un valor numérico.',
+            'course_id.exists' => 'El curso seleccionado no existe en la base de datos.'
         ];
     }
 
     public function attributes()
     {
         return [
-            //
+            'name' => 'Nombre',
+            'order' => 'Orden',
+            'course_id' => 'ID del Curso'
         ];
     }
 
@@ -61,5 +71,5 @@ class CreateRequest extends FormRequest
         return $response;
 
     }
-    
+
 }

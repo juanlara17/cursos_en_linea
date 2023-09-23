@@ -23,8 +23,8 @@ class Course extends Model
         CourseAssignment,
         CourseOperations,
         CourseMutators;
-        
-    protected $fillable = [];
+
+    protected $fillable = ['name', 'status', 'payload'];
 
     protected $creatable = [];
 

@@ -15,6 +15,16 @@ return new class extends Migration
     {
         Schema::create('activities', function (Blueprint $table) {
             $table->id();
+
+            $table->string('name');
+            $table->string('type');
+            $table->string('status');
+            $table->decimal('weight', 3,2);
+            $table->unsignedTinyInteger('order');
+            $table->foreignId('lesson_id');
+            $table->string('activitiable_id');
+            $table->string('activitiable_type');
+
             $table->timestamps();
             $table->softDeletes();
         });

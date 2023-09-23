@@ -23,12 +23,12 @@ class Section extends Model
         SectionAssignment,
         SectionOperations,
         SectionMutators;
-        
-    protected $fillable = [];
 
-    protected $creatable = [];
+    protected $fillable = ['name', 'order', 'course_id'];
 
-    protected $updatable = [];
+    protected $creatable = ['name', 'order', 'course_id'];
+
+    protected $updatable = ['name', 'order'];
 
     protected $casts = [];
 
