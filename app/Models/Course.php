@@ -26,9 +26,9 @@ class Course extends Model
 
     protected $fillable = ['name', 'status', 'payload'];
 
-    protected $creatable = [];
+    protected $creatable = ['name', 'status', 'payload'];
 
-    protected $updatable = [];
+    protected $updatable = ['name', 'status', 'payload'];
 
     protected $casts = [];
 

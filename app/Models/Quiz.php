@@ -23,12 +23,12 @@ class Quiz extends Model
         QuizAssignment,
         QuizOperations,
         QuizMutators;
-        
-    protected $fillable = [];
 
-    protected $creatable = [];
+    protected $fillable = ['title', 'version', 'payload', 'attempts_id'];
 
-    protected $updatable = [];
+    protected $creatable = ['title', 'version', 'payload', 'attempts_id'];
+
+    protected $updatable = ['title', 'version', 'payload'];
 
     protected $casts = [];
 

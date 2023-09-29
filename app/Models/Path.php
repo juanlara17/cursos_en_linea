@@ -23,12 +23,12 @@ class Path extends Model
         PathAssignment,
         PathOperations,
         PathMutators;
-        
-    protected $fillable = [];
 
-    protected $creatable = [];
+    protected $fillable = ['name', 'description'];
 
-    protected $updatable = [];
+    protected $creatable = ['name', 'description'];
+
+    protected $updatable = ['name', 'description'];
 
     protected $casts = [];
 

@@ -23,12 +23,12 @@ class Forum extends Model
         ForumAssignment,
         ForumOperations,
         ForumMutators;
-        
-    protected $fillable = [];
 
-    protected $creatable = [];
+    protected $fillable = ['name','course_id'];
 
-    protected $updatable = [];
+    protected $creatable = ['name','course_id'];
+
+    protected $updatable = ['name'];
 
     protected $casts = [];
 

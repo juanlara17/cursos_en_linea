@@ -23,12 +23,12 @@ class Career extends Model
         CareerAssignment,
         CareerOperations,
         CareerMutators;
-        
-    protected $fillable = [];
 
-    protected $creatable = [];
+    protected $fillable = ['name', 'description'];
 
-    protected $updatable = [];
+    protected $creatable = ['name', 'description'];
+
+    protected $updatable = ['name', 'description'];
 
     protected $casts = [];
 

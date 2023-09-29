@@ -23,12 +23,12 @@ class Thread extends Model
         ThreadAssignment,
         ThreadOperations,
         ThreadMutators;
-        
-    protected $fillable = [];
 
-    protected $creatable = [];
+    protected $fillable = ['title', 'content', 'forum_id', 'user_id'];
 
-    protected $updatable = [];
+    protected $creatable = ['title', 'content', 'forum_id', 'user_id'];
+
+    protected $updatable = ['title', 'content'];
 
     protected $casts = [];
 

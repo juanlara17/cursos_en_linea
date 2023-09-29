@@ -23,12 +23,12 @@ class Answer extends Model
         AnswerAssignment,
         AnswerOperations,
         AnswerMutators;
-        
-    protected $fillable = [];
 
-    protected $creatable = [];
+    protected $fillable = ['version', 'content', 'grade', 'grade_override', 'question_data', 'question_id', 'attempt_id'];
 
-    protected $updatable = [];
+    protected $creatable = ['version', 'content', 'grade', 'grade_override', 'question_data', 'question_id', 'attempt_id'];
+
+    protected $updatable = ['version', 'content', 'grade_override', 'question_data'];
 
     protected $casts = [];
 

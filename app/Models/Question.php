@@ -23,12 +23,12 @@ class Question extends Model
         QuestionAssignment,
         QuestionOperations,
         QuestionMutators;
-        
-    protected $fillable = [];
 
-    protected $creatable = [];
+    protected $fillable = ['version', 'type', 'order', 'payload', 'quiz_id'];
 
-    protected $updatable = [];
+    protected $creatable = ['version', 'type', 'order', 'payload', 'quiz_id'];
+
+    protected $updatable = ['version', 'type', 'order', 'payload'];
 
     protected $casts = [];
 

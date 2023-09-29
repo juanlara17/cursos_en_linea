@@ -23,12 +23,12 @@ class File extends Model
         FileAssignment,
         FileOperations,
         FileMutators;
-        
-    protected $fillable = [];
 
-    protected $creatable = [];
+    protected $fillable = ['name', 'path'];
 
-    protected $updatable = [];
+    protected $creatable = ['name', 'path'];
+
+    protected $updatable = ['name', 'path'];
 
     protected $casts = [];
 
