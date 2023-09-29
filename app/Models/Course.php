@@ -30,7 +30,9 @@ class Course extends Model
 
     protected $updatable = ['name', 'status', 'payload'];
 
-    protected $casts = [];
+    protected $casts = [
+        'payload' => 'json',
+    ];
 
     protected $protected_metas = [];
 

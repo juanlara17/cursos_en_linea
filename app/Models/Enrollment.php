@@ -30,7 +30,9 @@ class Enrollment extends Model
 
     protected $updatable = ['type', 'status', 'grade', 'grade_override', 'dedication', 'dedication_override', 'payload'];
 
-    protected $casts = [];
+    protected $casts = [
+        'payload' => 'json',
+    ];
 
     protected $protected_metas = [];
 

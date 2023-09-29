@@ -30,7 +30,9 @@ class Question extends Model
 
     protected $updatable = ['version', 'type', 'order', 'payload'];
 
-    protected $casts = [];
+    protected $casts = [
+        'payload' => 'json',
+    ];
 
     protected $protected_metas = [];
 

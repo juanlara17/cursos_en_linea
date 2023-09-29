@@ -30,7 +30,9 @@ class Homework extends Model
 
     protected $updatable = ['title','type','payload'];
 
-    protected $casts = [];
+    protected $casts = [
+        'payload' => 'json',
+    ];
 
     protected $protected_metas = [];
 

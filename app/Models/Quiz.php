@@ -30,7 +30,9 @@ class Quiz extends Model
 
     protected $updatable = ['title', 'version', 'payload'];
 
-    protected $casts = [];
+    protected $casts = [
+        'payload' => 'json',
+    ];
 
     protected $protected_metas = [];
 

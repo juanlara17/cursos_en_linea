@@ -18,6 +18,7 @@ return new class extends Migration
 
             $table->string('name');
             $table->unsignedTinyInteger('order');
+            $table->longText('payload')->nullable();
             $table->foreignId('section_id');
 
             $table->timestamps();
