@@ -28,7 +28,7 @@ class Question extends Model
 
     protected $creatable = ['version', 'type', 'order', 'payload', 'quiz_id'];
 
-    protected $updatable = ['version', 'type', 'order', 'payload'];
+    protected $updatable = ['version', 'type'];
 
     protected $casts = [
         'payload' => 'json',
@@ -44,11 +44,10 @@ class Question extends Model
 
     public static $loadable_counts = [];
 
-    /*
-    protected static function newFactory()
-    {
-        return \App\Database\Factories\QuestionFactory::new();
-    }
-    */
-
+    public $allowed_type = [
+        'true_false',
+        'single_option',
+        'multiple_option',
+        'short_answer'
+    ];
 }

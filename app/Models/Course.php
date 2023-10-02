@@ -26,9 +26,9 @@ class Course extends Model
 
     protected $fillable = ['name', 'status', 'payload'];
 
-    protected $creatable = ['name', 'status', 'payload'];
+    protected $creatable = ['name', 'status'];
 
-    protected $updatable = ['name', 'status', 'payload'];
+    protected $updatable = ['name', 'status'];
 
     protected $casts = [
         'payload' => 'json',
@@ -43,6 +43,12 @@ class Course extends Model
     public static $loadable_relations = [];
 
     public static $loadable_counts = [];
+
+    public $allowed_status = [
+        'public',
+        'draft',
+        'archived',
+    ];
 
     /*
     protected static function newFactory()

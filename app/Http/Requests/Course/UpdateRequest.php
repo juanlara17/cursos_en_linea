@@ -18,7 +18,7 @@ class UpdateRequest extends FormRequest
 
     public function authorize()
     {
-        
+
         $course = Course::findOrFail($this->course_id);
 
         return $this->user()->can('update', $course);
@@ -28,7 +28,11 @@ class UpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'nullable|string|max:255',
+            'status' => [
+                'nullable',
+                Rule::in((new Course)->allowed_status)
+            ],
             'course_id' => 'required|numeric'
         ];
     }

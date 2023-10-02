@@ -26,9 +26,9 @@ class Enrollment extends Model
 
     protected $fillable = ['type', 'status', 'grade', 'grade_override', 'dedication', 'dedication_override', 'payload', 'course_id', 'user_id', 'role'];
 
-    protected $creatable = ['type', 'status', 'grade', 'grade_override', 'dedication', 'dedication_override', 'payload', 'course_id', 'user_id', 'role'];
+    protected $creatable = ['type', 'status', 'grade_override', 'dedication_override', 'payload', 'course_id', 'user_id', 'role'];
 
-    protected $updatable = ['type', 'status', 'grade', 'grade_override', 'dedication', 'dedication_override', 'payload'];
+    protected $updatable = ['type', 'status', 'grade_override', 'dedication_override', 'payload'];
 
     protected $casts = [
         'payload' => 'json',
@@ -44,11 +44,20 @@ class Enrollment extends Model
 
     public static $loadable_counts = [];
 
-    /*
-    protected static function newFactory()
-    {
-        return \App\Database\Factories\EnrollmentFactory::new();
-    }
-    */
+    public $allowed_type = [
+        'free',
+        'subscription',
+        'payment',
+        'external_database'
+    ];
+
+    public $allowed_status = [
+        'active',
+        'pending',
+        'suspended',
+        'finished'
+    ];
+
+
 
 }

@@ -26,7 +26,7 @@ class Attempt extends Model
 
     protected $fillable = ['version', 'status', 'grade', 'grade_override', 'quiz_data', 'quiz_id', 'enrollment_id'];
 
-    protected $creatable = ['version', 'status', 'grade', 'grade_override', 'quiz_data', 'quiz_id', 'enrollment_id'];
+    protected $creatable = ['version', 'status', 'grade_override', 'quiz_data', 'quiz_id', 'enrollment_id'];
 
     protected $updatable = ['version', 'status', 'grade_override'];
 
@@ -42,11 +42,10 @@ class Attempt extends Model
 
     public static $loadable_counts = [];
 
-    /*
-    protected static function newFactory()
-    {
-        return \App\Database\Factories\AttemptFactory::new();
-    }
-    */
+    public $allowed_status = [
+        'not_started',
+        'started',
+        'finished',
+    ];
 
 }

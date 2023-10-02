@@ -26,9 +26,9 @@ class Resource extends Model
 
     protected $fillable = ['name', 'type', 'status', 'order', 'lesson_id', 'resourceable_id', 'resourceable_type'];
 
-    protected $creatable = ['name', 'type', 'status', 'order', 'lesson_id', 'resourceable_id', 'resourceable_type'];
+    protected $creatable = ['name', 'type', 'status', 'lesson_id', 'resourceable_id', 'resourceable_type'];
 
-    protected $updatable = ['name', 'type', 'status', 'order'];
+    protected $updatable = ['name', 'status'];
 
     protected $casts = [];
 
@@ -42,11 +42,14 @@ class Resource extends Model
 
     public static $loadable_counts = [];
 
-    /*
-    protected static function newFactory()
-    {
-        return \App\Database\Factories\ResourceFactory::new();
-    }
-    */
+    public $allowed_type = [
+        'note',
+        'video',
+        'file'
+    ];
 
+    public $allowed_status = [
+        'public',
+        'draft'
+    ];
 }

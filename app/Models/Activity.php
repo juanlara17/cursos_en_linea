@@ -41,12 +41,14 @@ class Activity extends Model
     public static $loadable_relations = [];
 
     public static $loadable_counts = [];
+    public $allowed_type = [
+        'quiz',
+        'homework',
+    ];
 
-    /*
-    protected static function newFactory()
-    {
-        return \App\Database\Factories\ActivityFactory::new();
-    }
-    */
+    public $allowed_status = [
+        'public',
+        'draft'
+    ];
 
 }
