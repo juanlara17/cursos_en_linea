@@ -4,6 +4,8 @@ namespace App\Models\Traits\Storage;
 
 // use App\Models\CourseMeta;
 
+use App\Models\CourseMeta;
+
 trait CourseStorage
 {
 
@@ -12,20 +14,23 @@ trait CourseStorage
 
         $course = $this->create($request->only($this->creatable));
 
+        $course->updateModelMetas($request);
+
         return $course;
 
     }
 
     public function updateModel($request)
     {
-     
+
         $this->update($request->only($this->updatable));
+
+        $this->updateModelMetas($request);
 
         return $this;
 
     }
 
-    /*
     public function updateModelMetas($request)
     {
 
@@ -34,7 +39,7 @@ trait CourseStorage
         return $this;
 
     }
-    */
+
 
     public function deleteModel()
     {
@@ -56,7 +61,7 @@ trait CourseStorage
         abort(403);
 
         $this->forceDelete();
-        
+
     }
 
 }

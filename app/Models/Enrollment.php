@@ -57,7 +57,4 @@ class Enrollment extends Model
         'suspended',
         'finished'
     ];
-
-
-
 }

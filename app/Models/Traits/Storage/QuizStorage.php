@@ -4,6 +4,8 @@ namespace App\Models\Traits\Storage;
 
 // use App\Models\QuizMeta;
 
+use App\Models\QuizMeta;
+
 trait QuizStorage
 {
 
@@ -12,20 +14,24 @@ trait QuizStorage
 
         $quiz = $this->create($request->only($this->creatable));
 
+        $quiz->updateModelMetas($request);
+
         return $quiz;
 
     }
 
     public function updateModel($request)
     {
-     
+
         $this->update($request->only($this->updatable));
+
+        $this->updateModelMetas($request);
 
         return $this;
 
     }
 
-    /*
+
     public function updateModelMetas($request)
     {
 
@@ -34,7 +40,6 @@ trait QuizStorage
         return $this;
 
     }
-    */
 
     public function deleteModel()
     {
@@ -56,7 +61,7 @@ trait QuizStorage
         abort(403);
 
         $this->forceDelete();
-        
+
     }
 
 }

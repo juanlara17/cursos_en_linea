@@ -4,6 +4,8 @@ namespace App\Models\Traits\Storage;
 
 // use App\Models\QuestionMeta;
 
+use App\Models\QuestionMeta;
+
 trait QuestionStorage
 {
 
@@ -12,20 +14,23 @@ trait QuestionStorage
 
         $question = $this->create($request->only($this->creatable));
 
+        $question->updateModalMetas($request);
+
         return $question;
 
     }
 
     public function updateModel($request)
     {
-     
+
         $this->update($request->only($this->updatable));
+
+        $this->updateModalMetas($request);
 
         return $this;
 
     }
 
-    /*
     public function updateModelMetas($request)
     {
 
@@ -34,7 +39,6 @@ trait QuestionStorage
         return $this;
 
     }
-    */
 
     public function deleteModel()
     {
@@ -56,7 +60,7 @@ trait QuestionStorage
         abort(403);
 
         $this->forceDelete();
-        
+
     }
 
 }

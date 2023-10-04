@@ -5,11 +5,16 @@ namespace App\Models\Traits\Operations;
 trait CourseOperations
 {
 
-    /*
     public function buildPayload()
     {
 
-        return [];
+        return [
+            'description' => $this->meta('description'),
+            'data' => [
+                'youtube' => $this->meta('youtube'),
+                'vimeo' => $this->meta('vimeo'),
+            ]
+        ];
 
     }
 
@@ -21,6 +26,5 @@ trait CourseOperations
         return $this->save();
 
     }
-    */
 
 }

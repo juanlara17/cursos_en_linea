@@ -36,7 +36,11 @@ class Course extends Model
 
     protected $protected_metas = [];
 
-    protected $editable_metas = [];
+    protected $editable_metas = [
+        'description',
+        'youtube',
+        'vimeo'
+    ];
 
     public static $export_cols = [];
 

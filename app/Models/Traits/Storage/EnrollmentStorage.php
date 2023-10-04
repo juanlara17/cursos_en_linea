@@ -4,6 +4,8 @@ namespace App\Models\Traits\Storage;
 
 // use App\Models\EnrollmentMeta;
 
+use App\Models\EnrollmentMeta;
+
 trait EnrollmentStorage
 {
 
@@ -12,20 +14,23 @@ trait EnrollmentStorage
 
         $enrollment = $this->create($request->only($this->creatable));
 
+        $enrollment->updateModelMetas($request);
+
         return $enrollment;
 
     }
 
     public function updateModel($request)
     {
-     
+
         $this->update($request->only($this->updatable));
+
+        $this->updateModelMetas($request);
 
         return $this;
 
     }
 
-    /*
     public function updateModelMetas($request)
     {
 
@@ -34,7 +39,6 @@ trait EnrollmentStorage
         return $this;
 
     }
-    */
 
     public function deleteModel()
     {
@@ -56,7 +60,7 @@ trait EnrollmentStorage
         abort(403);
 
         $this->forceDelete();
-        
+
     }
 
 }

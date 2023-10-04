@@ -4,6 +4,8 @@ namespace App\Models\Traits\Storage;
 
 // use App\Models\LessonMeta;
 
+use App\Models\LessonMeta;
+
 trait LessonStorage
 {
 
@@ -12,20 +14,23 @@ trait LessonStorage
 
         $lesson = $this->create($request->only($this->creatable));
 
+        $lesson->updateModelMetas($request);
+
         return $lesson;
 
     }
 
     public function updateModel($request)
     {
-     
+
         $this->update($request->only($this->updatable));
+
+        $this->updateModelMetas($request);
 
         return $this;
 
     }
 
-    /*
     public function updateModelMetas($request)
     {
 
@@ -34,7 +39,6 @@ trait LessonStorage
         return $this;
 
     }
-    */
 
     public function deleteModel()
     {
@@ -56,7 +60,7 @@ trait LessonStorage
         abort(403);
 
         $this->forceDelete();
-        
+
     }
 
 }
